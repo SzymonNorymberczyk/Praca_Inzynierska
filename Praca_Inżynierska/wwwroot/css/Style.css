@@ -114,6 +114,7 @@
     .sidebar.open li .tooltip {
         display: none;
     }
+    
 
     .sidebar input {
         font-size: 15px;
@@ -197,9 +198,9 @@
         border-radius: 12px;
     }
 
-    .sidebar li.profile {
+    .sidebar .register {
         position: fixed;
-        height: 120px;
+        /*height: 60px;*/
         width: 78px;
         left: 0;
         bottom: -8px;
@@ -208,16 +209,26 @@
         transition: all 0.5s ease;
         overflow: hidden;
     }
+    .sidebar .login {
+        position: fixed;
+        /*height: 60px;*/
+        width: 78px;
+        left: 0;
+        bottom: 61px;
+        padding: 10px 14px;
+        background: #1d1b31;
+        transition: all 0.5s ease;
+        overflow: hidden;
+    }
 
-    .sidebar.open li.profile {
+    .sidebar.open .register {
+        width: 250px;
+    }
+    .sidebar.open .login {
         width: 250px;
     }
 
-    .sidebar li .profile-details {
-        display: flex;
-        align-items: center;
-        flex-wrap: nowrap;
-    }
+    
 
     .sidebar li img {
         height: 45px;
@@ -227,17 +238,9 @@
         margin-right: 10px;
     }
 
-    .sidebar li.profile .name,
-    .sidebar li.profile .job {
-        font-size: 15px;
-        font-weight: 400;
-        color: #fff;
-        white-space: nowrap;
-    }
+   
 
-    .sidebar li.profile .job {
-        font-size: 12px;
-    }
+    
 
     .sidebar .profile #log_out {
         position: absolute;
@@ -286,3 +289,5 @@
         display: none;
     }
 }
+
+

@@ -6,6 +6,7 @@
     <title>@ViewData["Title"] - Praca_Inżynierska</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/Style.css" />
+    
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 
 </head>
@@ -46,7 +47,7 @@
                 <span class="tooltip">Search</span>
             </li>
             <li>
-                <a href="#">
+                <a href="/Home">
                     <i class='bx bx-grid-alt'></i>
                     <span class="links_name">Dashboard</span>
                 </a>
@@ -60,7 +61,7 @@
                 <span class="tooltip">Zamów</span>
             </li>
             <li>
-                <a href="#">
+                <a asp-area="Identity" asp-page="/Account/Manage/Index">
                     <i class='bx bx-user'></i>
                     <span class="links_name">Konto</span>
                 </a>
@@ -80,16 +81,26 @@
                 </a>
                 <span class="tooltip">Setting</span>
             </li>
-            <li class="profile">
-                <div class="profile-details">
-                    <partial name="_LoginPartial" />
-                    @*<a class="nav-link text-light" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
-        <a class="nav-link text-light" asp-area="" asp-controller="Account" asp-action="Register">Register</a>*@
-                </div>
-                @*<i class='bx bx-log-out' id="log_out"></i>*@
+            @*<li class="profile">
+            <div class="login">
+                <a asp-area="" asp-controller="Account" asp-action="Login">
+                    <i class='bx bx-key'></i>
+                    <span class="links_name">Login</span>
+                </a>
+                <span class="tooltip">Login</span>
+            </div>
+
+            <div class="register">
+                <a asp-area="" asp-controller="Account" asp-action="Register">
+                    <i class='bx bx-clipboard'></i>
+                    <span class="links_name">Register</span>
+                </a>
+                <span class="tooltip">Register</span>
+            </div>
+        </li>*@
+            <li>
+                <partial name="_LoginPartial" />
             </li>
-            
-            @*<partial name="_LoginPartial" />*@
         </ul>
     </div>
     <section class="home-section">
