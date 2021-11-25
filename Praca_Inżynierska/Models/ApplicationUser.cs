@@ -11,6 +11,6 @@ namespace Praca_Inżynierska.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Password { get; set; }
-        //public virtual ICollection<Advertisements>? Advertisements { get; set; }
+        public virtual ICollection<Order>? Orders { get; set; }
     }
 }

@@ -1,0 +1,100 @@
+﻿@model Praca_Inżynierska.ViewModels.OrderViewModel
+
+@{
+    ViewData["Title"] = "AddOrder";
+}
+
+<h1>AddOrder</h1>
+
+<h4>OrderViewModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddOrder">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <h4>Nadawca</h4>
+            <div class="form-group">
+                <label asp-for="Sender.Name" class="control-label"></label>
+                <input asp-for="Sender.Name" class="form-control" />
+                <span asp-validation-for="Sender.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sender.Surname" class="control-label"></label>
+                <input asp-for="Sender.Surname" class="form-control" />
+                <span asp-validation-for="Sender.Surname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sender.PhoneNumber" class="control-label"></label>
+                <input asp-for="Sender.PhoneNumber" class="form-control" />
+                <span asp-validation-for="Sender.PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sender.City" class="control-label"></label>
+                <input asp-for="Sender.City" class="form-control" />
+                <span asp-validation-for="Sender.City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sender.Street" class="control-label"></label>
+                <input asp-for="Sender.Street" class="form-control" />
+                <span asp-validation-for="Sender.Street" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sender.Number" class="control-label"></label>
+                <input asp-for="Sender.Number" class="form-control" />
+                <span asp-validation-for="Sender.Number" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sender.ZIPcode" class="control-label"></label>
+                <input asp-for="Sender.ZIPcode" class="form-control" />
+                <span asp-validation-for="Sender.ZIPcode" class="text-danger"></span>
+            </div>
+            <h4>Odbiorca</h4>
+            <div class="form-group">
+                <label asp-for="Receiver.Name" class="control-label"></label>
+                <input asp-for="Receiver.Name" class="form-control" />
+                <span asp-validation-for="Receiver.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Receiver.Surname" class="control-label"></label>
+                <input asp-for="Receiver.Surname" class="form-control" />
+                <span asp-validation-for="Receiver.Surname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Receiver.PhoneNumber" class="control-label"></label>
+                <input asp-for="Receiver.PhoneNumber" class="form-control" />
+                <span asp-validation-for="Receiver.PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Receiver.City" class="control-label"></label>
+                <input asp-for="Receiver.City" class="form-control" />
+                <span asp-validation-for="Receiver.City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Receiver.Street" class="control-label"></label>
+                <input asp-for="Receiver.Street" class="form-control" />
+                <span asp-validation-for="Receiver.Street" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Receiver.Number" class="control-label"></label>
+                <input asp-for="Receiver.Number" class="form-control" />
+                <span asp-validation-for="Receiver.Number" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Receiver.ZIPcode" class="control-label"></label>
+                <input asp-for="Receiver.ZIPcode" class="form-control" />
+                <span asp-validation-for="Receiver.ZIPcode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
