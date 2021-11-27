@@ -1,62 +1,61 @@
 ﻿@model Praca_Inżynierska.ViewModels.RegisterViewModel
-
+    <link rel="stylesheet" href="~/css/LabelStyle.css" />
 @{
     ViewData["Title"] = "Register";
 }
 <link href="~/css/LogReg.css" rel="stylesheet" />
-<div id="RegForm">
-    <h1>Rejestracja</h1>
+<div class="container">
+    <div class="title">Rejestracja</div>
 
-    <hr />
-    <div class="row">
-        <div class="col-md-4">
+    <div class="content">
             <form asp-action="Register">
+        <div class="user-details">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="form-group">
-                    <label asp-for="FirstName" class="control-label"></label>
-                    <input asp-for="FirstName" placeholder="Name" class="form-control" />
+                <div class="input-box">
+                    <label asp-for="FirstName" class="details"></label>
+                    <input asp-for="FirstName" placeholder="Name"  required/>
                     <span asp-validation-for="FirstName" class="text-danger"></span>
                 </div>
-                <div class="form-group">
-                    <label asp-for="LastName" class="control-label"></label>
-                    <input asp-for="LastName" placeholder="Nazwisko" class="form-control" />
+                <div class="input-box">
+                    <label asp-for="LastName" class="details"></label>
+                    <input asp-for="LastName" placeholder="Nazwisko"  required/>
                     <span asp-validation-for="LastName" class="text-danger"></span>
                 </div>
-                <div class="form-group">
-                    <label asp-for="Login" class="control-label"></label>
-                    <input asp-for="Login" placeholder="Login" class="form-control" />
+                <div class="input-box">
+                    <label asp-for="Login" class="details"></label>
+                    <input asp-for="Login" placeholder="Login"  required/>
                     <span asp-validation-for="Login" class="text-danger"></span>
                 </div>
-                <div class="form-group">
-                    <label asp-for="Email" class="control-label"></label>
-                    <input asp-for="Email" placeholder="Email" class="form-control" />
+                <div class="input-box">
+                    <label asp-for="Email" class="details"></label>
+                    <input asp-for="Email" placeholder="Email" required />
                     <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
-                <div class="form-group">
-                    <label asp-for="Password" class="control-label"></label>
-                    <input asp-for="Password" placeholder="Hasło" class="form-control" />
+                <div class="input-box">
+                    <label asp-for="Password" class="details"></label>
+                    <input asp-for="Password" placeholder="Hasło"  required/>
                     <span asp-validation-for="Password" class="text-danger"></span>
                 </div>
-                <div class="form-group">
-                    <label asp-for="ConfrirmPassword" class="control-label"></label>
-                    <input asp-for="ConfrirmPassword" placeholder="Powtórz hasło" class="form-control" />
+                <div class="input-box">
+                    <label asp-for="ConfrirmPassword" class="details"></label>
+                    <input asp-for="ConfrirmPassword" placeholder="Powtórz hasło"  required/>
                     <span asp-validation-for="ConfrirmPassword" class="text-danger"></span>
                 </div>
 
-                <div class="g-recaptcha" data-sitekey="6LfSsKUaAAAAABbqZtFyCWUARsmM4-HGFZuhi0U0"></div>
+                @*<div class="g-recaptcha" data-sitekey="6LfSsKUaAAAAABbqZtFyCWUARsmM4-HGFZuhi0U0"></div>
                 <span style="display:inline-block ; font-size:15px; color:red">
                     @ViewBag.Message
-                </span>
+                </span>*@
 
-                <div class="form-group">
+                <div class="button">
                     <input type="submit" value="Zarejestruj" class="btn btn-primary" id="myButton" />
                 </div>
-            </form>
-        </div>
+            </div>
+         </form>
     </div>
 </div>
 
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

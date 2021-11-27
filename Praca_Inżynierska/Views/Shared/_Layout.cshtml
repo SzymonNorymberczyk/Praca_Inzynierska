@@ -70,10 +70,10 @@
             </li>
             <li>
                 <a href="#">
-                      <i class='bx bx-clipboard'></i>
-                      <span class="links_name">Twoje zamówienia</span>
-                 </a>
-                    <span class="tooltip">Orders</span>
+                    <i class='bx bx-clipboard'></i>
+                    <span class="links_name">Twoje zamówienia</span>
+                </a>
+                <span class="tooltip">Orders</span>
             </li>
             <li>
                 <a href="#">
@@ -83,22 +83,22 @@
                 <span class="tooltip">Setting</span>
             </li>
             @*<li class="profile">
-            <div class="login">
-                <a asp-area="" asp-controller="Account" asp-action="Login">
-                    <i class='bx bx-key'></i>
-                    <span class="links_name">Login</span>
-                </a>
-                <span class="tooltip">Login</span>
-            </div>
+                    <div class="login">
+                        <a asp-area="" asp-controller="Account" asp-action="Login">
+                            <i class='bx bx-key'></i>
+                            <span class="links_name">Login</span>
+                        </a>
+                        <span class="tooltip">Login</span>
+                    </div>
 
-            <div class="register">
-                <a asp-area="" asp-controller="Account" asp-action="Register">
-                    <i class='bx bx-clipboard'></i>
-                    <span class="links_name">Register</span>
-                </a>
-                <span class="tooltip">Register</span>
-            </div>
-        </li>*@
+                    <div class="register">
+                        <a asp-area="" asp-controller="Account" asp-action="Register">
+                            <i class='bx bx-clipboard'></i>
+                            <span class="links_name">Register</span>
+                        </a>
+                        <span class="tooltip">Register</span>
+                    </div>
+                </li>*@
             <li>
                 <partial name="_LoginPartial" />
             </li>
@@ -111,12 +111,13 @@
             </main>
         </div>
 
-        <footer class="border-top footer text-muted">
-            <div class="container">
-                &copy; 2021 - Praca_Inżynierska - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-            </div>
-        </footer>
+
     </section>
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - Praca_Inżynierska - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
     <script>
         let sidebar = document.querySelector(".sidebar");
         let closeBtn = document.querySelector("#btn");
@@ -141,7 +142,7 @@
             }
         }
     </script>
-    
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

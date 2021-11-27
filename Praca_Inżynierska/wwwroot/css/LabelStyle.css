@@ -48,6 +48,12 @@ body {
     justify-content: space-between;
     margin: 20px 0 12px 0;
 }
+.content form .login-details {
+    
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
+}
 
 form .user-details .input-box {
     margin-bottom: 15px;
@@ -74,6 +80,23 @@ form .input-box span.details {
 
     .user-details .input-box input:focus,
     .user-details .input-box input:valid {
+        border-color: #9b59b6;
+    }
+
+.login-details .input-box input {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    border-radius: 5px;
+    padding-left: 15px;
+    border: 1px solid #ccc;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+
+    .login-details .input-box input:focus,
+    .login-details .input-box input:valid {
         border-color: #9b59b6;
     }
 
@@ -150,6 +173,11 @@ form .button {
         width: 100%;
     }
 
+    form .login-details .input-box {
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
     form .category {
         width: 100%;
     }
@@ -160,6 +188,15 @@ form .button {
     }
 
     .user-details::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    .content form .login-details {
+        max-height: 300px;
+        overflow-y: scroll;
+    }
+
+    .login-details::-webkit-scrollbar {
         width: 5px;
     }
 }
