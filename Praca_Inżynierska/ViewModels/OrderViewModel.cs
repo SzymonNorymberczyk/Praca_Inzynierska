@@ -14,5 +14,6 @@ namespace Praca_Inżynierska.ViewModels
 
         public virtual OrderDetailViewModel Sender { get; set; }
         public virtual OrderDetailViewModel Receiver { get; set; }
+        public virtual OrderProductViewModel Product { get; set; }
     }
 }

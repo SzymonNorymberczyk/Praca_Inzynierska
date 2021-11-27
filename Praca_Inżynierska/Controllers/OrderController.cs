@@ -41,6 +41,15 @@ namespace Praca_Inżynierska.Controllers
         {
 
             var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var product = new OrderProduct
+            {
+                Weight = orderModel.Product.Weight,
+                Height = orderModel.Product.Height,
+                Length = orderModel.Product.Length,
+                Width = orderModel.Product.Width,
+                Count = orderModel.Product.Count,
+                Details = orderModel.Product.Details
+            };
             var sender = new OrderDetail
             {
                 
@@ -74,7 +83,13 @@ namespace Praca_Inżynierska.Controllers
                 {
                     sender,
                     receiver
+                },
+                OrderProducts = new List<OrderProduct>
+                {
+                    product
                 }
+
+                
             };
             _context.Orders.Add(order);
             _context.SaveChanges();

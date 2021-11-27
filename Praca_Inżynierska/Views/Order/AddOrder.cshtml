@@ -1,95 +1,277 @@
 ﻿@model Praca_Inżynierska.ViewModels.OrderViewModel
-
+<link rel="stylesheet" href="~/css/LabelStyle.css" />
 @{
     ViewData["Title"] = "AddOrder";
 }
 
-<h1>AddOrder</h1>
-
-<h4>OrderViewModel</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+<h2 style="text-align:center">Formularz zamówienia</h2>
+<div class="container">
+    
+    <div class="content">
         <form asp-action="AddOrder">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <h4>Nadawca</h4>
-            <div class="form-group">
-                <label asp-for="Sender.Name" class="control-label"></label>
-                <input asp-for="Sender.Name" class="form-control" />
-                <span asp-validation-for="Sender.Name" class="text-danger"></span>
+            <div class="title">Przedmiot do przesyłki </div>
+            <div class="user-details">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="input-box">
+                    <label asp-for="Product.Weight" class="details"></label>
+                    <input asp-for="Product.Weight" type="text" placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Product.Weight" class="text-danger"></span>
+                </div>
+
+                <div class="input-box">
+                    <label asp-for="Product.Height" class="details"></label>
+                    <input asp-for="Product.Height" type="text" placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Product.Height" class="text-danger"></span>
+                </div>
+
+                <div class="input-box">
+                    <label asp-for="Product.Length" class="details"></label>
+                    <input asp-for="Product.Length" type="text" placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Product.Length" class="text-danger"></span>
+                </div>
+
+                <div class="input-box">
+                    <label asp-for="Product.Width" class="details"></label>
+                    <input asp-for="Product.Width" type="text" placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Product.Width" class="text-danger"></span>
+                </div>
+
+                <div class="input-box">
+                    <label asp-for="Product.Count" class="details"></label>
+                    <input asp-for="Product.Count" type="text" placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Product.Count" class="text-danger"></span>
+                </div>
+
+                <div class="input-box">
+                    <label asp-for="Product.Details" class="details"></label>
+                    <input asp-for="Product.Details" type="text" placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Product.Details" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Sender.Surname" class="control-label"></label>
-                <input asp-for="Sender.Surname" class="form-control" />
-                <span asp-validation-for="Sender.Surname" class="text-danger"></span>
+            <div class="title">Nadawca </div>
+            <div class="user-details">
+                <div class="input-box">
+                    <label asp-for="Sender.Name" class="details"></label>
+                    <input asp-for="Sender.Name" type="text" placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Sender.Name" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label asp-for="Sender.Surname" class="details"></label>
+                    <input asp-for="Sender.Surname" type="text" placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Sender.Surname" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label asp-for="Sender.PhoneNumber" class="details"></label>
+                    <input asp-for="Sender.PhoneNumber" type="text" placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Sender.PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label asp-for="Sender.City" class="details"></label>
+                    <input asp-for="Sender.City" type="text" placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Sender.City" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label asp-for="Sender.Street" class="details"></label>
+                    <input asp-for="Sender.Street" type="text" placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Sender.Street" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label asp-for="Sender.Number" class="details"></label>
+                    <input asp-for="Sender.Number" type="text" placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Sender.Number" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label asp-for="Sender.ZIPcode" class="details"></label>
+                    <input asp-for="Sender.ZIPcode" type="text" placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Sender.ZIPcode" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Sender.PhoneNumber" class="control-label"></label>
-                <input asp-for="Sender.PhoneNumber" class="form-control" />
-                <span asp-validation-for="Sender.PhoneNumber" class="text-danger"></span>
+            <div class="title">Odbiorca </div>
+            <div class="user-details">
+                <div class="input-box">
+                    <label asp-for="Receiver.Name" class="details"></label>
+                    <input asp-for="Receiver.Name" type="text" placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Receiver.Name" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label asp-for="Receiver.Surname" class="details"></label>
+                    <input asp-for="Receiver.Surname" type="text" placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Receiver.Surname" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label asp-for="Receiver.PhoneNumber" class="details"></label>
+                    <input asp-for="Receiver.PhoneNumber" type="text" placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Receiver.PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label asp-for="Receiver.City" class="details"></label>
+                    <input asp-for="Receiver.City" type="text" placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Receiver.City" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label asp-for="Receiver.Street" class="details"></label>
+                    <input asp-for="Receiver.Street" type="text" placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Receiver.Street" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label asp-for="Receiver.Number" class="details"></label>
+                    <input asp-for="Receiver.Number" type="text" placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Receiver.Number" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label asp-for="Receiver.ZIPcode" class="details"></label>
+                    <input asp-for="Receiver.ZIPcode" type="text" placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Receiver.ZIPcode" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Sender.City" class="control-label"></label>
-                <input asp-for="Sender.City" class="form-control" />
-                <span asp-validation-for="Sender.City" class="text-danger"></span>
+            @*<div class="gender-details">
+            <input type="radio" name="gender" id="dot-1">
+            <input type="radio" name="gender" id="dot-2">
+            <input type="radio" name="gender" id="dot-3">
+            <span class="gender-title">Gender</span>
+            <div class="category">
+                <label for="dot-1">
+                    <span class="dot one"></span>
+                    <span class="gender">Male</span>
+                </label>
+                <label for="dot-2">
+                    <span class="dot two"></span>
+                    <span class="gender">Female</span>
+                </label>
+                <label for="dot-3">
+                    <span class="dot three"></span>
+                    <span class="gender">Prefer not to say</span>
+                </label>
             </div>
-            <div class="form-group">
-                <label asp-for="Sender.Street" class="control-label"></label>
-                <input asp-for="Sender.Street" class="form-control" />
-                <span asp-validation-for="Sender.Street" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Sender.Number" class="control-label"></label>
-                <input asp-for="Sender.Number" class="form-control" />
-                <span asp-validation-for="Sender.Number" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Sender.ZIPcode" class="control-label"></label>
-                <input asp-for="Sender.ZIPcode" class="form-control" />
-                <span asp-validation-for="Sender.ZIPcode" class="text-danger"></span>
-            </div>
-            <h4>Odbiorca</h4>
-            <div class="form-group">
-                <label asp-for="Receiver.Name" class="control-label"></label>
-                <input asp-for="Receiver.Name" class="form-control" />
-                <span asp-validation-for="Receiver.Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Receiver.Surname" class="control-label"></label>
-                <input asp-for="Receiver.Surname" class="form-control" />
-                <span asp-validation-for="Receiver.Surname" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Receiver.PhoneNumber" class="control-label"></label>
-                <input asp-for="Receiver.PhoneNumber" class="form-control" />
-                <span asp-validation-for="Receiver.PhoneNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Receiver.City" class="control-label"></label>
-                <input asp-for="Receiver.City" class="form-control" />
-                <span asp-validation-for="Receiver.City" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Receiver.Street" class="control-label"></label>
-                <input asp-for="Receiver.Street" class="form-control" />
-                <span asp-validation-for="Receiver.Street" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Receiver.Number" class="control-label"></label>
-                <input asp-for="Receiver.Number" class="form-control" />
-                <span asp-validation-for="Receiver.Number" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Receiver.ZIPcode" class="control-label"></label>
-                <input asp-for="Receiver.ZIPcode" class="form-control" />
-                <span asp-validation-for="Receiver.ZIPcode" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+        </div>*@
+            <div class="button">
+                <input type="submit" value="Złóż zamówienie">
             </div>
         </form>
     </div>
 </div>
+@*<div class="container">
+    <div class="title">Dodaj Zamówienie</div>
+    <div class="content">
+        <div class="user-details">
+            <form asp-action="AddOrder">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <h4>Przedmiot do przesyłki </h4>
+                <div class="input-box">
+                    <label asp-for="Product.Weight" class="details"></label>
+                    <input asp-for="Product.Weight" type="text" placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Product.Weight" class="text-danger"></span>
+                </div>
+
+                <div class="input-box">
+                    <label asp-for="Product.Height" class="details"></label>
+                    <input asp-for="Product.Height" type="text" placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Product.Height" class="text-danger"></span>
+                </div>
+
+                <div class="input-box">
+                    <label asp-for="Product.Length" class="details"></label>
+                    <input asp-for="Product.Length" type="text" placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Product.Length" class="text-danger"></span>
+                </div>
+
+                <div class="input-box">
+                    <label asp-for="Product.Width" class="details"></label>
+                    <input asp-for="Product.Width" type="text" placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Product.Width" class="text-danger"></span>
+                </div>
+
+                <div class="input-box">
+                    <label asp-for="Product.Count" class="details"></label>
+                    <input asp-for="Product.Count" type="text" placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Product.Count" class="text-danger"></span>
+                </div>
+
+                <div class="input-box">
+                    <label asp-for="Product.Details" class="details"></label>
+                    <input asp-for="Product.Details" type="text" placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Product.Details" class="text-danger"></span>
+                </div>
+                <h4>Nadawca</h4>
+                <div class="input-box">
+                    <label asp-for="Sender.Name" class="details"></label>
+                    <input asp-for="Sender.Name" type="text" placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Sender.Name" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label asp-for="Sender.Surname" class="details"></label>
+                    <input asp-for="Sender.Surname" type="text" placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Sender.Surname" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label asp-for="Sender.PhoneNumber" class="details"></label>
+                    <input asp-for="Sender.PhoneNumber" type="text" placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Sender.PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label asp-for="Sender.City" class="details"></label>
+                    <input asp-for="Sender.City" type="text" placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Sender.City" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label asp-for="Sender.Street" class="details"></label>
+                    <input asp-for="Sender.Street" type="text" placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Sender.Street" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label asp-for="Sender.Number" class="details"></label>
+                    <input asp-for="Sender.Number" type="text" placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Sender.Number" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label asp-for="Sender.ZIPcode" class="details"></label>
+                    <input asp-for="Sender.ZIPcode" type="text" placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Sender.ZIPcode" class="text-danger"></span>
+                </div>
+                <h4>Odbiorca</h4>
+                <div class="input-box">
+                    <label asp-for="Receiver.Name" class="details"></label>
+                    <input asp-for="Receiver.Name" type="text" placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Receiver.Name" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label asp-for="Receiver.Surname" class="details"></label>
+                    <input asp-for="Receiver.Surname" type="text" placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Receiver.Surname" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label asp-for="Receiver.PhoneNumber" class="details"></label>
+                    <input asp-for="Receiver.PhoneNumber" type="text" placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Receiver.PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label asp-for="Receiver.City" class="details"></label>
+                    <input asp-for="Receiver.City" type="text" placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Receiver.City" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label asp-for="Receiver.Street" class="details"></label>
+                    <input asp-for="Receiver.Street" type="text" placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Receiver.Street" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label asp-for="Receiver.Number" class="details"></label>
+                    <input asp-for="Receiver.Number" type="text" placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Receiver.Number" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label asp-for="Receiver.ZIPcode" class="details"></label>
+                    <input asp-for="Receiver.ZIPcode" type="text" placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Receiver.ZIPcode" class="text-danger"></span>
+                </div>
+                <div class="button">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>*@
 
 <div>
     <a asp-action="Index">Back to List</a>

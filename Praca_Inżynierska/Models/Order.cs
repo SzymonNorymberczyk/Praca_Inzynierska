@@ -18,5 +18,7 @@ namespace Praca_Inżynierska.Models
         public virtual ApplicationUser ApplicationUser { get; set; }
 
         public DateTime DateCreate { get; set; }
+        
+        public virtual ICollection<OrderProduct> OrderProducts { get; set; }
     }
 }

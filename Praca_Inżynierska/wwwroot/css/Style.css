@@ -198,35 +198,7 @@
         border-radius: 12px;
     }
 
-    .sidebar .register {
-        position: fixed;
-        /*height: 60px;*/
-        width: 78px;
-        left: 0;
-        bottom: -8px;
-        padding: 10px 14px;
-        background: #1d1b31;
-        transition: all 0.5s ease;
-        overflow: hidden;
-    }
-    .sidebar .login {
-        position: fixed;
-        /*height: 60px;*/
-        width: 78px;
-        left: 0;
-        bottom: 61px;
-        padding: 10px 14px;
-        background: #1d1b31;
-        transition: all 0.5s ease;
-        overflow: hidden;
-    }
-
-    .sidebar.open .register {
-        width: 250px;
-    }
-    .sidebar.open .login {
-        width: 250px;
-    }
+    
 
     
 
@@ -242,27 +214,11 @@
 
     
 
-    .sidebar .profile #log_out {
-        position: absolute;
-        top: 50%;
-        right: 0;
-        transform: translateY(-50%);
-        background: #1d1b31;
-        width: 100%;
-        height: 60px;
-        line-height: 60px;
-        border-radius: 0px;
-        transition: all 0.5s ease;
-    }
-
-    .sidebar.open .profile #log_out {
-        width: 50px;
-        background: none;
-    }
+    
 
 .home-section {
     position: relative;
-    background: #E4E9F7;
+    /*background: #E4E9F7;*/
     min-height: 100vh;
     top: 0;
     left: 78px;
