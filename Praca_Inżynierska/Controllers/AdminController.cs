@@ -18,7 +18,7 @@ namespace Praca_Inżynierska.Controllers
         }
         public IActionResult OrdersList()
         {
-            var test = _context.Orders.Include(x => x.ApplicationUser).Include(x => x.OrderDetails).Include(x => x.OrderProducts).OrderByDescending(x => x.Id).ToList();
+            var test = _context.Orders.Include(x => x.ApplicationUser).Include(x => x.OrderDetails).Include(x => x.OrderProducts).OrderBy(x => x.Id).ToList();
 
 
             return View(test);
