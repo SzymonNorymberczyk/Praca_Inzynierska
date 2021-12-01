@@ -10,6 +10,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
+
 namespace Praca_Inżynierska.Controllers
 {
     public class OrderController : Controller
@@ -28,6 +29,8 @@ namespace Praca_Inżynierska.Controllers
         {
             return View();
         }
+
+        
 
         [Authorize]
         [HttpGet]
@@ -61,8 +64,6 @@ namespace Praca_Inżynierska.Controllers
                 Number = orderModel.Sender.Number,
                 ZIPcode = orderModel.Sender.ZIPcode,
                 TypeAdress = "Nadawca"
-
-
             };
             var receiver = new OrderDetail
             {

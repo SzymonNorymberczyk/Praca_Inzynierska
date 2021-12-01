@@ -18,6 +18,8 @@ namespace Praca_Inżynierska.Data
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
 
+        
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -27,6 +29,12 @@ namespace Praca_Inżynierska.Data
                 //builder.Entity<OrderDetail>().HasOne<Order>(x => x.Order)
                 //.WithMany(x => x.OrderDetails).HasForeignKey(x => x.OrderId);
         }
+
+
+        public DbSet<Praca_Inżynierska.ViewModels.OrderViewModel> OrderViewModel { get; set; }
+
+
+        
 
 
         

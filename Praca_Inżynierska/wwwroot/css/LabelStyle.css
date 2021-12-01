@@ -48,6 +48,12 @@ body {
     justify-content: space-between;
     margin: 20px 0 12px 0;
 }
+.content form .product-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
+}
 .content form .login-details {
     
     flex-wrap: wrap;
@@ -80,6 +86,23 @@ form .input-box span.details {
 
     .user-details .input-box input:focus,
     .user-details .input-box input:valid {
+        border-color: #9b59b6;
+    }
+
+.product-details .input-box input {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    border-radius: 5px;
+    padding-left: 15px;
+    border: 1px solid #ccc;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+
+    .product-details .input-box input:focus,
+    .product-details .input-box input:valid {
         border-color: #9b59b6;
     }
 
