@@ -1,7 +1,7 @@
-﻿
+﻿@model IEnumerable<Order>
 
 @{
-    
+
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
@@ -27,20 +27,33 @@
                     <thead>
                         <tr>
                             <th>Sr. No.</th>
-                            <th>Product Name</th>
-                            <th>Action</th>
+                            <th>Data</th>
+                            <th>Nazwa</th>
+                            <th>Nazwisko</th>
 
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
                             <th>Sr. No.</th>
-                            <th>Product</th>
-                            <th>Action</th>
+                            <th>Data</th>
+                            <th>Nazwa</th>
+                            <th>Nazwisko</th>
                         </tr>
                     </tfoot>
                     <tbody>
-                        
+                        @foreach (var item in Model)
+                        {
+
+                            <tr>
+                                <td>@item.Id</td>
+                                <td>@item.DateCreate</td>
+                                <td>@item.ApplicationUser.UserName</td>
+                                <td>@item.ApplicationUser.LastName</td>
+
+                            </tr>
+
+                        }
 
                     </tbody>
                 </table>

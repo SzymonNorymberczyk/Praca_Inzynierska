@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Praca_Inżynierska.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +10,18 @@ namespace Praca_Inżynierska.Controllers
 {
     public class AdminController : Controller
     {
+        private readonly ApplicationDbContext _context;
+        public AdminController(ApplicationDbContext context)
+        {
+
+            _context = context;
+        }
         public IActionResult OrdersList()
         {
-            return View();
+            var test = _context.Orders.Include(x => x.ApplicationUser).Include(x => x.OrderDetails).Include(x => x.OrderProducts).OrderByDescending(x => x.Id).ToList();
+
+
+            return View(test);
         }
 
         public IActionResult AdminDashBoard()
