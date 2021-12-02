@@ -30,6 +30,7 @@
                             <th>Data</th>
                             <th>Nazwa</th>
                             <th>Nazwisko</th>
+                            <th>Akcja</th>
 
                         </tr>
                     </thead>
@@ -39,6 +40,7 @@
                             <th>Data</th>
                             <th>Nazwa</th>
                             <th>Nazwisko</th>
+                            <th>Akcja</th>
                         </tr>
                     </tfoot>
                     <tbody>
@@ -50,7 +52,7 @@
                                 <td>@item.DateCreate</td>
                                 <td>@item.ApplicationUser.UserName</td>
                                 <td>@item.ApplicationUser.LastName</td>
-
+                                <td><a asp-action="Edit" asp-controller="Admin" asp-route-id="@item.Id" class="btn btn-secondary"><span title="Edit"><i class="fas fa-pen"></i></span></a></td>
                             </tr>
 
                         }
