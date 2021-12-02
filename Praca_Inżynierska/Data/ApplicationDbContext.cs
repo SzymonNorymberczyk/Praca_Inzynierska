@@ -18,6 +18,8 @@ namespace Praca_Inżynierska.Data
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
 
+        public DbSet<OrderProduct> OrderProducts { get; set; }
+
         
 
 
@@ -31,7 +33,7 @@ namespace Praca_Inżynierska.Data
         }
 
 
-        public DbSet<Praca_Inżynierska.ViewModels.OrderViewModel> OrderViewModel { get; set; }
+        
 
 
         
