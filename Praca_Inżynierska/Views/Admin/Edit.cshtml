@@ -5,145 +5,181 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h1>Edit</h1>
 
-<h4>OrderViewModel</h4>
+
+<h1>Edycja Zamówienia</h1>
 <hr />
-<div class="container">
-    <div class="mb-3">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="col-md-3 ">
-                <h4>Data Zamówienia</h4>
-                <div class="form-group">
-                    <label asp-for="DateCreate" class="control-label"></label>
-                    <input asp-for="DateCreate" class="form-control" />
-                    <span asp-validation-for="DateCreate" class="text-danger"></span>
-                </div>
-                <h4>Produkt</h4>
-                <div class="form-group">
-                    <label asp-for="Product.Weight" class="control-label"></label>
-                    <input asp-for="Product.Weight" class="form-control" />
-                    <span asp-validation-for="Product.Weight" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Product.Height" class="control-label"></label>
-                    <input asp-for="Product.Height" class="form-control" />
-                    <span asp-validation-for="Product.Height" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Product.Length" class="control-label"></label>
-                    <input asp-for="Product.Length" class="form-control" />
-                    <span asp-validation-for="Product.Length" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Product.Width" class="control-label"></label>
-                    <input asp-for="Product.Width" class="form-control" />
-                    <span asp-validation-for="Product.Width" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Product.Count" class="control-label"></label>
-                    <input asp-for="Product.Count" class="form-control" />
-                    <span asp-validation-for="Product.Count" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Product.Details" class="control-label"></label>
-                    <input asp-for="Product.Details" class="form-control" />
-                    <span asp-validation-for="Product.Details" class="text-danger"></span>
-                </div>
-                <h4>Nadawca</h4>
-                <div class="form-group">
-                    <label asp-for="Sender.Name" class="control-label"></label>
-                    <input asp-for="Sender.Name" class="form-control" />
-                    <span asp-validation-for="Sender.Name" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Sender.Surname" class="control-label"></label>
-                    <input asp-for="Sender.Surname" class="form-control" />
-                    <span asp-validation-for="Sender.Surname" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Sender.City" class="control-label"></label>
-                    <input asp-for="Sender.City" class="form-control" />
-                    <span asp-validation-for="Sender.City" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Sender.Street" class="control-label"></label>
-                    <input asp-for="Sender.Street" class="form-control" />
-                    <span asp-validation-for="Sender.Street" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Sender.Number" class="control-label"></label>
-                    <input asp-for="Sender.Number" class="form-control" />
-                    <span asp-validation-for="Sender.Number" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Sender.ZIPcode" class="control-label"></label>
-                    <input asp-for="Sender.ZIPcode" class="form-control" />
-                    <span asp-validation-for="Sender.ZIPcode" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Sender.PhoneNumber" class="control-label"></label>
-                    <input asp-for="Sender.PhoneNumber" class="form-control" />
-                    <span asp-validation-for="Sender.PhoneNumber" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Sender.Email" class="control-label"></label>
-                    <input asp-for="Sender.Email" class="form-control" />
-                    <span asp-validation-for="Sender.Email" class="text-danger"></span>
-                </div>
-                <h4>Odbiorca</h4>
-                <div class="form-group">
-                    <label asp-for="Receiver.Name" class="control-label"></label>
-                    <input asp-for="Receiver.Name" class="form-control" />
-                    <span asp-validation-for="Receiver.Name" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Receiver.Surname" class="control-label"></label>
-                    <input asp-for="Receiver.Surname" class="form-control" />
-                    <span asp-validation-for="Receiver.Surname" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Receiver.City" class="control-label"></label>
-                    <input asp-for="Receiver.City" class="form-control" />
-                    <span asp-validation-for="Receiver.City" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Receiver.Street" class="control-label"></label>
-                    <input asp-for="Receiver.Street" class="form-control" />
-                    <span asp-validation-for="Receiver.Street" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Receiver.Number" class="control-label"></label>
-                    <input asp-for="Receiver.Number" class="form-control" />
-                    <span asp-validation-for="Receiver.Number" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Receiver.ZIPcode" class="control-label"></label>
-                    <input asp-for="Receiver.ZIPcode" class="form-control" />
-                    <span asp-validation-for="Receiver.ZIPcode" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Receiver.PhoneNumber" class="control-label"></label>
-                    <input asp-for="Receiver.PhoneNumber" class="form-control" />
-                    <span asp-validation-for="Receiver.PhoneNumber" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Receiver.Email" class="control-label"></label>
-                    <input asp-for="Receiver.Email" class="form-control" />
-                    <span asp-validation-for="Receiver.Email" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="Save" class="btn btn-primary" />
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
 
-<div>
-    <a asp-action="OrdersList">Back to List</a>
-</div>
+
+<form asp-action="Edit">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="Id" />
+    <div class="col-md-4">
+        <h4>Data Zamówienia</h4>
+        <div class="form-group col-8">
+            <label asp-for="DateCreate" class="control-label"></label>
+            <input asp-for="DateCreate" class="form-control" />
+            <span asp-validation-for="DateCreate" class="text-danger"></span>
+        </div>
+        <h4>Produkt</h4>
+        <div class="d-flex flex-row">
+            <div class="form-group col-3">
+                <label asp-for="Product.Width" class="control-label"></label>
+                <input asp-for="Product.Width" class="form-control" />
+                <span asp-validation-for="Product.Width" class="text-danger"></span>
+            </div>
+            &nbsp;
+            <div class="form-group col-3">
+                <label asp-for="Product.Height" class="control-label"></label>
+                <input asp-for="Product.Height" class="form-control" />
+                <span asp-validation-for="Product.Height" class="text-danger"></span>
+            </div>
+            &nbsp;
+            <div class="form-group col-3">
+                <label asp-for="Product.Length" class="control-label"></label>
+                <input asp-for="Product.Length" class="form-control" />
+                <span asp-validation-for="Product.Length" class="text-danger"></span>
+            </div>
+
+        </div>
+        <div class="d-flex flex-row">
+            <div class="form-group col-3">
+                <label asp-for="Product.Weight" class="control-label"></label>
+                <input asp-for="Product.Weight" class="form-control" />
+                <span asp-validation-for="Product.Weight" class="text-danger"></span>
+            </div>
+            &nbsp;
+            <div class="form-group col-3">
+                <label asp-for="Product.Count" class="control-label"></label>
+                <input asp-for="Product.Count" class="form-control" />
+                <span asp-validation-for="Product.Count" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group col-8">
+            <label asp-for="Product.Details" class="control-label"></label>
+            <textarea asp-for="Product.Details" class="form-control"> </textarea>
+            <span asp-validation-for="Product.Details" class="text-danger"></span>
+        </div>
+        <h4>Nadawca</h4>
+        <div class="d-flex flex-row">
+            <div class="form-group col-5">
+                <label asp-for="Sender.Name" class="control-label"></label>
+                <input asp-for="Sender.Name" class="form-control" />
+                <span asp-validation-for="Sender.Name" class="text-danger"></span>
+            </div>
+            &nbsp;
+            <div class="form-group col-5">
+                <label asp-for="Sender.Surname" class="control-label"></label>
+                <input asp-for="Sender.Surname" class="form-control" />
+                <span asp-validation-for="Sender.Surname" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="d-flex flex-row">
+            <div class="form-group col-6">
+                <label asp-for="Sender.City" class="control-label"></label>
+                <input asp-for="Sender.City" class="form-control" />
+                <span asp-validation-for="Sender.City" class="text-danger"></span>
+            </div>
+            &nbsp;
+            <div class="form-group col-3">
+                <label asp-for="Sender.ZIPcode" class="control-label"></label>
+                <input asp-for="Sender.ZIPcode" class="form-control" />
+                <span asp-validation-for="Sender.ZIPcode" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="d-flex flex-row">
+            <div class="form-group col-6">
+                <label asp-for="Sender.Street" class="control-label"></label>
+                <input asp-for="Sender.Street" class="form-control" />
+                <span asp-validation-for="Sender.Street" class="text-danger"></span>
+            </div>
+            &nbsp;
+            <div class="form-group col-3">
+                <label asp-for="Sender.Number" class="control-label"></label>
+                <input asp-for="Sender.Number" class="form-control" />
+                <span asp-validation-for="Sender.Number" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="d-flex flex-row">
+            <div class="form-group col-5">
+                <label asp-for="Sender.PhoneNumber" class="control-label"></label>
+                <input asp-for="Sender.PhoneNumber" class="form-control" />
+                <span asp-validation-for="Sender.PhoneNumber" class="text-danger"></span>
+            </div>
+            &nbsp;
+            <div class="form-group col-5">
+                <label asp-for="Sender.Email" class="control-label"></label>
+                <input asp-for="Sender.Email" class="form-control" />
+                <span asp-validation-for="Sender.Email" class="text-danger"></span>
+            </div>
+        </div>
+        <h4>Odbiorca</h4>
+        <div class="d-flex flex-row">
+            <div class="form-group col-5">
+                <label asp-for="Receiver.Name" class="control-label"></label>
+                <input asp-for="Receiver.Name" class="form-control" />
+                <span asp-validation-for="Receiver.Name" class="text-danger"></span>
+            </div>
+            &nbsp;
+            <div class="form-group col-5">
+                <label asp-for="Receiver.Surname" class="control-label"></label>
+                <input asp-for="Receiver.Surname" class="form-control" />
+                <span asp-validation-for="Receiver.Surname" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="d-flex flex-row">
+            <div class="form-group col-6">
+                <label asp-for="Receiver.City" class="control-label"></label>
+                <input asp-for="Receiver.City" class="form-control" />
+                <span asp-validation-for="Receiver.City" class="text-danger"></span>
+            </div>
+            &nbsp;
+            <div class="form-group col-3">
+                <label asp-for="Receiver.ZIPcode" class="control-label"></label>
+                <input asp-for="Receiver.ZIPcode" class="form-control" />
+                <span asp-validation-for="Receiver.ZIPcode" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="d-flex flex-row">
+            <div class="form-group col-6">
+                <label asp-for="Receiver.Street" class="control-label"></label>
+                <input asp-for="Receiver.Street" class="form-control" />
+                <span asp-validation-for="Receiver.Street" class="text-danger"></span>
+            </div>
+            &nbsp;
+            <div class="form-group col-3">
+                <label asp-for="Receiver.Number" class="control-label"></label>
+                <input asp-for="Receiver.Number" class="form-control" />
+                <span asp-validation-for="Receiver.Number" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="d-flex flex-row">
+            <div class="form-group col-5">
+                <label asp-for="Receiver.PhoneNumber" class="control-label"></label>
+                <input asp-for="Receiver.PhoneNumber" class="form-control" />
+                <span asp-validation-for="Receiver.PhoneNumber" class="text-danger"></span>
+            </div>
+            &nbsp;
+            <div class="form-group col-5">
+                <label asp-for="Receiver.Email" class="control-label"></label>
+                <input asp-for="Receiver.Email" class="form-control" />
+                <span asp-validation-for="Receiver.Email" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="d-flex flex-row">
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+            &nbsp;
+            <div class="form-group">
+                <a asp-action="OrdersList" class="btn btn-primary">Back to List</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+
 
 
