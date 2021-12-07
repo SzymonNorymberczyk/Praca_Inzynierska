@@ -20,6 +20,8 @@ namespace Praca_Inżynierska.Data
 
         public DbSet<OrderProduct> OrderProducts { get; set; }
 
+        public DbSet<OrderStatus> OrderStatuses { get; set; }
+
         
 
 

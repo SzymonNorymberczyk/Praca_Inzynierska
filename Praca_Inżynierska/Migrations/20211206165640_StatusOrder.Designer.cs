@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Praca_Inżynierska.Data;
 
 namespace Praca_Inżynierska.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211206165640_StatusOrder")]
+    partial class StatusOrder
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -235,16 +237,11 @@ namespace Praca_Inżynierska.Migrations
                     b.Property<DateTime>("DateCreate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("OrderStatusId")
-                        .HasColumnType("int");
-
                     b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("OrderStatusId");
 
                     b.HasIndex("UserId");
 
@@ -356,7 +353,12 @@ namespace Praca_Inżynierska.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("OrderId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
 
                     b.ToTable("OrderStatuses");
                 });
@@ -430,10 +432,6 @@ namespace Praca_Inżynierska.Migrations
 
             modelBuilder.Entity("Praca_Inżynierska.Models.Order", b =>
                 {
-                    b.HasOne("Praca_Inżynierska.Models.OrderStatus", "OrderStatus")
-                        .WithMany("Order")
-                        .HasForeignKey("OrderStatusId");
-
                     b.HasOne("Praca_Inżynierska.Models.ApplicationUser", "ApplicationUser")
                         .WithMany("Orders")
                         .HasForeignKey("UserId")
@@ -441,8 +439,6 @@ namespace Praca_Inżynierska.Migrations
                         .IsRequired();
 
                     b.Navigation("ApplicationUser");
-
-                    b.Navigation("OrderStatus");
                 });
 
             modelBuilder.Entity("Praca_Inżynierska.Models.OrderDetail", b =>
@@ -465,16 +461,22 @@ namespace Praca_Inżynierska.Migrations
                     b.Navigation("Order");
                 });
 
+            modelBuilder.Entity("Praca_Inżynierska.Models.OrderStatus", b =>
+                {
+                    b.HasOne("Praca_Inżynierska.Models.Order", "Order")
+                        .WithMany("OrderStatuses")
+                        .HasForeignKey("OrderId");
+
+                    b.Navigation("Order");
+                });
+
             modelBuilder.Entity("Praca_Inżynierska.Models.Order", b =>
                 {
                     b.Navigation("OrderDetails");
 
                     b.Navigation("OrderProducts");
-                });
 
-            modelBuilder.Entity("Praca_Inżynierska.Models.OrderStatus", b =>
-                {
-                    b.Navigation("Order");
+                    b.Navigation("OrderStatuses");
                 });
 
             modelBuilder.Entity("Praca_Inżynierska.Models.ApplicationUser", b =>

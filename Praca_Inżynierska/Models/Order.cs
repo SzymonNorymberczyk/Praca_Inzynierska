@@ -17,8 +17,12 @@ namespace Praca_Inżynierska.Models
         
         public virtual ApplicationUser ApplicationUser { get; set; }
 
+        public int OrderStatusId { get; set; }
+
         public DateTime DateCreate { get; set; }
         
         public virtual ICollection<OrderProduct> OrderProducts { get; set; }
+
+        public virtual OrderStatus  OrderStatus { get; set; }
     }
 }

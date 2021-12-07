@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Praca_Inżynierska.Data;
 
 namespace Praca_Inżynierska.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211206170214_StatusOrderFix")]
+    partial class StatusOrderFix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -235,7 +237,7 @@ namespace Praca_Inżynierska.Migrations
                     b.Property<DateTime>("DateCreate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("OrderStatusId")
+                    b.Property<int?>("OrderStatusesId")
                         .HasColumnType("int");
 
                     b.Property<string>("UserId")
@@ -244,7 +246,7 @@ namespace Praca_Inżynierska.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("OrderStatusId");
+                    b.HasIndex("OrderStatusesId");
 
                     b.HasIndex("UserId");
 
@@ -430,9 +432,9 @@ namespace Praca_Inżynierska.Migrations
 
             modelBuilder.Entity("Praca_Inżynierska.Models.Order", b =>
                 {
-                    b.HasOne("Praca_Inżynierska.Models.OrderStatus", "OrderStatus")
+                    b.HasOne("Praca_Inżynierska.Models.OrderStatus", "OrderStatuses")
                         .WithMany("Order")
-                        .HasForeignKey("OrderStatusId");
+                        .HasForeignKey("OrderStatusesId");
 
                     b.HasOne("Praca_Inżynierska.Models.ApplicationUser", "ApplicationUser")
                         .WithMany("Orders")
@@ -442,7 +444,7 @@ namespace Praca_Inżynierska.Migrations
 
                     b.Navigation("ApplicationUser");
 
-                    b.Navigation("OrderStatus");
+                    b.Navigation("OrderStatuses");
                 });
 
             modelBuilder.Entity("Praca_Inżynierska.Models.OrderDetail", b =>

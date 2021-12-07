@@ -24,5 +24,7 @@ namespace Praca_Inżynierska.Models
 
         public virtual Order Order { get; set; }
 
+        public int OrderId { get; set; }
+
     }
 }

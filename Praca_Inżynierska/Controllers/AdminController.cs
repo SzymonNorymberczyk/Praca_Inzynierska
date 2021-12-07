@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Praca_Inżynierska.Data;
 using Praca_Inżynierska.Models;
@@ -7,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
 
 namespace Praca_Inżynierska.Controllers
 {
@@ -21,10 +23,11 @@ namespace Praca_Inżynierska.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            var orders = _context.Orders.Include(x => x.OrderDetails).Include(x => x.OrderProducts).FirstOrDefault(x => x.Id == id);
-            var products = _context.OrderProducts.FirstOrDefault(x => x.Id == id);
+            var orders = _context.Orders.Include(x => x.OrderDetails).Include(x => x.OrderProducts).Include(x =>x.OrderStatus).FirstOrDefault(x => x.Id == id);
+            var products = _context.OrderProducts.FirstOrDefault(x => x.OrderId == id);
             var sender = _context.OrderDetails.FirstOrDefault(x => x.OrderId == id && x.TypeAdress == "Nadawca");
             var receiver = _context.OrderDetails.FirstOrDefault(x => x.OrderId == id && x.TypeAdress == "Odbiorca");
+            
 
 
             OrderDetailViewModel orderDetailSender = new OrderDetailViewModel
@@ -67,8 +70,14 @@ namespace Praca_Inżynierska.Controllers
                 DateCreate = orders.DateCreate,
                 Product = orderProductViewModel,
                 Sender = orderDetailSender,
-                Receiver = orderDetailReceiver
-
+                Receiver = orderDetailReceiver,
+                OrderStatusId = orders.OrderStatusId,
+                StatusTypesSelectListItem = _context.OrderStatuses.Select(x => new SelectListItem
+                {
+                    Text = x.Name,
+                    Value = x.Id.ToString()
+                })
+                
 
             };
 
@@ -78,8 +87,9 @@ namespace Praca_Inżynierska.Controllers
         [HttpPost]
         public IActionResult Edit(OrderViewModel orders)
         {
+            
             var order = _context.Orders.FirstOrDefault(x => x.Id == orders.Id);
-            var products = _context.OrderProducts.FirstOrDefault(x => x.Id == order.Id);
+            var products = _context.OrderProducts.FirstOrDefault(x => x.OrderId == order.Id);
             var sender = _context.OrderDetails.FirstOrDefault(x => x.OrderId == order.Id && x.TypeAdress == "Nadawca");
             var receiver = _context.OrderDetails.FirstOrDefault(x => x.OrderId == order.Id && x.TypeAdress == "Odbiorca");
             if (order == null)
@@ -88,6 +98,7 @@ namespace Praca_Inżynierska.Controllers
             }
             else
             {
+                order.OrderStatusId = orders.OrderStatusId;
                 order.Id = orders.Id;
                 order.DateCreate = orders.DateCreate;
                 products.Weight = orders.Product.Weight;
@@ -121,7 +132,7 @@ namespace Praca_Inżynierska.Controllers
         }
         public IActionResult OrdersList()
         {
-            var test = _context.Orders.Include(x => x.ApplicationUser).Include(x => x.OrderDetails).Include(x => x.OrderProducts).OrderBy(x => x.Id).ToList();
+            var test = _context.Orders.Include(x => x.ApplicationUser).Include(x => x.OrderDetails).Include(x => x.OrderProducts).Include(x =>x.OrderStatus).OrderBy(x => x.Id).ToList();
 
 
             return View(test);

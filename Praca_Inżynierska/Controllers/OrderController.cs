@@ -53,6 +53,7 @@ namespace Praca_Inżynierska.Controllers
                 Count = orderModel.Product.Count,
                 Details = orderModel.Product.Details
             };
+            
             var sender = new OrderDetail
             {
                 
@@ -80,6 +81,7 @@ namespace Praca_Inżynierska.Controllers
             {
                 DateCreate = DateTime.Now,
                 UserId = userId,
+                OrderStatusId = 1,
                 OrderDetails = new List<OrderDetail>
                 {
                     sender,
