@@ -8,7 +8,10 @@ using System.Threading.Tasks;
 namespace Praca_Inżynierska.ViewModels
 {
     public class RegisterViewModel
+
     {
+        public string Id { get; set; }
+
         [Display(Name = "Imię")]
         [Required(ErrorMessage = "To pole musi być wypełnione")]
         [DataType(DataType.Text)]

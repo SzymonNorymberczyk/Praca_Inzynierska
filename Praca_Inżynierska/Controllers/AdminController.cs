@@ -132,10 +132,47 @@ namespace Praca_Inżynierska.Controllers
         }
         public IActionResult OrdersList()
         {
-            var test = _context.Orders.Include(x => x.ApplicationUser).Include(x => x.OrderDetails).Include(x => x.OrderProducts).Include(x =>x.OrderStatus).OrderBy(x => x.Id).ToList();
+            var orders = _context.Orders.Include(x => x.ApplicationUser).Include(x => x.OrderDetails).Include(x => x.OrderProducts).Include(x =>x.OrderStatus).OrderBy(x => x.Id).ToList();
 
 
-            return View(test);
+            return View(orders);
+        }
+
+        public IActionResult UsersList()
+        {
+            var users = _context.Users.ToList();
+
+            return View(users);
+        }
+
+        [HttpGet]
+        public IActionResult UsersEdit(string id)
+        {
+            
+            var user = _context.Users.FirstOrDefault(x => x.Id == id);
+
+            RegisterViewModel applicationUser = new RegisterViewModel
+            {
+                Login = user.UserName,
+                Email = user.Email,
+                LastName = user.LastName,
+                FirstName = user.FirstName
+            };
+
+            return View(applicationUser);
+        }
+        [HttpPost]
+        public IActionResult UsersEdit(RegisterViewModel registerViewModel)
+        {
+
+            var user = _context.Users.FirstOrDefault(x => x.Id == registerViewModel.Id);
+            user.UserName = registerViewModel.Login;
+            user.Email = registerViewModel.Email;
+            user.LastName = registerViewModel.LastName;
+            user.FirstName = registerViewModel.FirstName;
+
+            _context.SaveChanges();
+            return RedirectToAction("UsersEdit");
         }
 
         public IActionResult AdminDashBoard()

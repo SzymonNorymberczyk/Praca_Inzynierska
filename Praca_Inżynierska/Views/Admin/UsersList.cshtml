@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Order>
+﻿@model IEnumerable<ApplicationUser>
 
 @{
 
@@ -27,10 +27,10 @@
                     <thead>
                         <tr>
                             <th>Sr. No.</th>
-                            <th>Data</th>
-                            <th>Nazwa</th>
+                            <th>Login</th>
+                            <th>email</th>
+                            <th>Imie</th>
                             <th>Nazwisko</th>
-                            <th>Status zamówienia</th>
                             <th>Akcja</th>
 
                         </tr>
@@ -38,10 +38,10 @@
                     <tfoot>
                         <tr>
                             <th>Sr. No.</th>
-                            <th>Data</th>
-                            <th>Nazwa</th>
+                            <th>Login</th>
+                            <th>email</th>
+                            <th>Imie</th>
                             <th>Nazwisko</th>
-                            <th>Status zamówienia</th>
                             <th>Akcja</th>
                         </tr>
                     </tfoot>
@@ -51,11 +51,11 @@
 
                             <tr>
                                 <td>@item.Id</td>
-                                <td>@item.DateCreate</td>
-                                <td>@item.ApplicationUser.UserName</td>
-                                <td>@item.ApplicationUser.LastName</td>
-                                <td>@item.OrderStatus.Name</td>
-                                <td><a asp-action="Edit" asp-controller="Admin" asp-route-id="@item.Id" class="btn btn-secondary"><span title="Edit"><i class="fas fa-pen"></i></span></a></td>
+                                <td>@item.UserName</td>
+                                <td>@item.Email</td>
+                                <td>@item.FirstName</td>
+                                <td>@item.LastName</td>
+                                <td><a asp-action="UsersEdit" asp-controller="Admin" asp-route-id="@item.Id" class="btn btn-secondary"><span title="Edit"><i class="fas fa-pen"></i></span></a></td>
                             </tr>
 
                         }
