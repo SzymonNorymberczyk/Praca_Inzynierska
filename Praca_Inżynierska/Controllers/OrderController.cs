@@ -40,6 +40,69 @@ namespace Praca_Inżynierska.Controllers
 
             return View(orders);
         }
+        [Authorize]
+        public IActionResult DisplayOrder(int id)
+        {
+            var orders = _context.Orders.Include(x => x.OrderDetails).Include(x => x.OrderProducts).Include(x => x.OrderStatus).FirstOrDefault(x => x.Id == id);
+            var products = _context.OrderProducts.FirstOrDefault(x => x.OrderId == id);
+            var sender = _context.OrderDetails.FirstOrDefault(x => x.OrderId == id && x.TypeAdress == "Nadawca");
+            var receiver = _context.OrderDetails.FirstOrDefault(x => x.OrderId == id && x.TypeAdress == "Odbiorca");
+
+
+
+            OrderDetailViewModel orderDetailSender = new OrderDetailViewModel
+            {
+                Name = sender.Name,
+                Surname = sender.Surname,
+                City = sender.City,
+                Street = sender.Street,
+                Number = sender.Number,
+                ZIPcode = sender.ZIPcode,
+                PhoneNumber = sender.PhoneNumber,
+                Email = sender.Email
+            };
+
+            OrderDetailViewModel orderDetailReceiver = new OrderDetailViewModel
+            {
+                Name = receiver.Name,
+                Surname = receiver.Surname,
+                City = receiver.City,
+                Street = receiver.Street,
+                Number = receiver.Number,
+                ZIPcode = receiver.ZIPcode,
+                PhoneNumber = receiver.PhoneNumber,
+                Email = receiver.Email
+            };
+
+            OrderProductViewModel orderProductViewModel = new OrderProductViewModel
+            {
+                Weight = products.Weight,
+                Height = products.Height,
+                Length = products.Length,
+                Width = products.Width,
+                Count = products.Count,
+                Details = products.Details
+
+            };
+            OrderStatusViewModel orderStatusViewModel = new OrderStatusViewModel
+            {
+                Name = orders.OrderStatus.Name
+            };
+            OrderDisplayViewModel orderViewModel = new OrderDisplayViewModel
+            {
+                Id = orders.Id,
+                DateCreate = orders.DateCreate,
+                Product = orderProductViewModel,
+                Sender = orderDetailSender,
+                Receiver = orderDetailReceiver,
+                OrderStatus = orderStatusViewModel,
+                OrderStatusId = orders.OrderStatusId
+                
+               
+            };
+
+            return View(orderViewModel);
+        }
 
         
 

@@ -6,10 +6,6 @@
 }
 
 <div class="title"><h1>Twoje zamówienia</h1></div>
-
-
-    
-
 <div class="container">
     <div class="content">
         <form action="AddOrder" style="width:200px;">
@@ -49,7 +45,7 @@
                         </td>
                         <td>
                             <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                            <a asp-action="DisplayOrder" asp-route-id="@item.Id">Details</a> |
                             <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                         </td>
                     </tr>

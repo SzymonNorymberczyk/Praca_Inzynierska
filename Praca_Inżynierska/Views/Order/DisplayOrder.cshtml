@@ -1,0 +1,158 @@
+﻿@model Praca_Inżynierska.ViewModels.OrderDisplayViewModel
+    <link rel="stylesheet" href="~/css/LabelStyle.css" />
+    @{
+        ViewData["Title"] = "DisplayOrder";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    <div class="title"><h1>Twoje zamówienie nr @Html.DisplayFor(model => model.Id)</h1></div>
+    <div class="container">
+        <div class="content">
+            <div class="title"><h2>Produkt</h2></div>
+
+            <dl class="row">
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.DateCreate)
+                </dt>
+                <dd class="col-sm-3">
+                    @Html.DisplayFor(model => model.DateCreate)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.OrderStatus.Name)
+                </dt>
+                <dd class="col-sm-3">
+                    @Html.DisplayFor(model => model.OrderStatus.Name)
+                </dd>
+            </dl>
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Product.Height)
+                </dt>
+                <dd class="col-sm-2">
+                    @Html.DisplayFor(model => model.Product.Height) cm
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Product.Length)
+                </dt>
+                <dd class="col-sm-2">
+                    @Html.DisplayFor(model => model.Product.Length) cm
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Product.Width)
+                </dt>
+                <dd class="col-sm-2">
+                    @Html.DisplayFor(model => model.Product.Width) cm
+                </dd>
+            </dl>
+
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Product.Weight)
+                </dt>
+                <dd class="col-sm-2">
+                    @Html.DisplayFor(model => model.Product.Weight) kg
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Product.Count)
+                </dt>
+                <dd class="col-sm-2">
+                    @Html.DisplayFor(model => model.Product.Count) sztuk
+                </dd>
+            </dl>
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Product.Details)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Product.Details)
+                </dd>
+            </dl>
+            <div class="title"><h2>Nadawca</h2></div>
+            <dl class="row">
+                <dt>
+                    @Html.DisplayFor(model => model.Sender.Name)
+                </dt>
+
+                &nbsp;
+                <dt>
+                    @Html.DisplayFor(model => model.Sender.Surname)
+                </dt>
+            </dl>
+            <dl class="row">
+                <dd>
+                    @Html.DisplayFor(model => model.Sender.City)
+                </dd>
+                &nbsp;
+                <dd>
+                    @Html.DisplayFor(model => model.Sender.ZIPcode)
+                </dd>
+            </dl>
+            <dl class="row">
+                <dd>
+                    @Html.DisplayFor(model => model.Sender.Street)
+                </dd>
+                &nbsp;
+                <dd>
+                    @Html.DisplayFor(model => model.Sender.Number)
+                </dd>
+            </dl>
+            <dl class="row">
+                <dd>
+                    @Html.DisplayFor(model => model.Sender.PhoneNumber)
+                </dd>
+                &nbsp;
+                <dd>
+                    @Html.DisplayFor(model => model.Sender.Email)
+                </dd>
+            </dl>
+            <div class="title"><h2>Odbiorca</h2></div>
+            <div>
+                <dl class="row">
+                    <dt>
+                        @Html.DisplayFor(model => model.Receiver.Name)
+                    </dt>
+
+                    &nbsp;
+                    <dt>
+                        @Html.DisplayFor(model => model.Receiver.Surname)
+                    </dt>
+                </dl>
+                <dl class="row">
+                    <dd>
+                        @Html.DisplayFor(model => model.Receiver.City)
+                    </dd>
+                    &nbsp;
+                    <dd>
+                        @Html.DisplayFor(model => model.Receiver.ZIPcode)
+                    </dd>
+                </dl>
+                <dl class="row">
+                    <dd>
+                        @Html.DisplayFor(model => model.Receiver.Street)
+                    </dd>
+                    &nbsp;
+                    <dd>
+                        @Html.DisplayFor(model => model.Receiver.Number)
+                    </dd>
+                </dl>
+                <dl class="row">
+                    <dd>
+                        @Html.DisplayFor(model => model.Receiver.PhoneNumber)
+                    </dd>
+                    &nbsp;
+                    <dd>
+                        @Html.DisplayFor(model => model.Receiver.Email)
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <div>
+        <form asp-action="MyOrdersList" asp-controller="Order" style="width:200px;">
+            <div class="button">
+                <input type="submit" value="Wróć do listy">
+            </div>
+        </form>
+        <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+        
+    </div>

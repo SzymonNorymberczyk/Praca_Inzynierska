@@ -34,6 +34,11 @@ namespace Praca_Inżynierska.Data
                 //.WithMany(x => x.OrderDetails).HasForeignKey(x => x.OrderId);
         }
 
+        
+
+
+        public DbSet<Praca_Inżynierska.ViewModels.OrderDisplayViewModel> OrderDisplayViewModel { get; set; }
+
 
         
 
