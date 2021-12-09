@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Praca_Inżynierska.Data;
 using Praca_Inżynierska.Models;
 using Praca_Inżynierska.ViewModels;
@@ -28,6 +29,16 @@ namespace Praca_Inżynierska.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+
+        [Authorize]
+        public IActionResult MyOrdersList()
+        {
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var orders = _context.Orders.Include(x => x.ApplicationUser).Include(x => x.OrderDetails).Include(x => x.OrderProducts).Include(x => x.OrderStatus).Where(x =>x.UserId == userId).ToList();
+
+
+            return View(orders);
         }
 
         

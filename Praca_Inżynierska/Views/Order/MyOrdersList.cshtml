@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Praca_Inżynierska.Models.Order>
+<link rel="stylesheet" href="~/css/LabelStyle.css" />
+@{
+    ViewData["Title"] = "MyOrdersList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="title"><h1>Twoje zamówienia</h1></div>
+
+
+    
+
+<div class="container">
+    <div class="content">
+        <form action="AddOrder" style="width:200px;">
+            <div class="button" >
+                <input type="submit" value="Złóż zamówienie">
+            </div>
+        </form>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Zamówienie nr
+                    </th>
+                    <th>
+                        Data utworzenia
+                    </th>
+                    <th>
+                        Status zamówienia
+                    </th>
+                    <th>
+                        Akcje
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DateCreate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.OrderStatus.Name)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
