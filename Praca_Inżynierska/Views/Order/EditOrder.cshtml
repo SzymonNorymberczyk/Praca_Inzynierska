@@ -1,57 +1,52 @@
 ﻿@model Praca_Inżynierska.ViewModels.OrderViewModel
 <link rel="stylesheet" href="~/css/LabelStyle.css" />
 @{
-    ViewData["Title"] = "AddOrder";
+    ViewData["Title"] = "EditOrder";
 }
 
-<h2 style="text-align:center">Formularz zamówienia</h2>
+<h2 style="text-align:center">Edycja zamówienia</h2>
 <div class="container">
 
     <div class="content">
-        <form asp-action="AddOrder">
+        <form asp-action="EditOrder">
             <div class="title">Przedmiot do przesyłki </div>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="user-details">
-                        <div class="input-box">
-                            <label asp-for="Product.Weight" class="details"></label>
-                            <input asp-for="Product.Weight" type="number" placeholder="Wprowadz ..." required />
-                            <span asp-validation-for="Product.Weight" class="text-danger"></span>
-                        </div>
-
-                        <div class="input-box">
-                            <label asp-for="Product.Height" class="details"></label>
-                            <input asp-for="Product.Height" type="number" placeholder="Wprowadz ..." required />
-                            <span asp-validation-for="Product.Height" class="text-danger"></span>
-                        </div>
-
-                        <div class="input-box">
-                            <label asp-for="Product.Length" class="details"></label>
-                            <input asp-for="Product.Length" type="number" placeholder="Wprowadz ..." required />
-                            <span asp-validation-for="Product.Length" class="text-danger"></span>
-                        </div>
-
-                        <div class="input-box">
-                            <label asp-for="Product.Width" class="details"></label>
-                            <input asp-for="Product.Width" type="number" placeholder="Wprowadz ..." required />
-                            <span asp-validation-for="Product.Width" class="text-danger"></span>
-                        </div>
-
-                        <div class="input-box">
-                            <label asp-for="Product.Count" class="details"></label>
-                            <input asp-for="Product.Count" type="number" placeholder="Wprowadz ..." required />
-                            <span asp-validation-for="Product.Count" class="text-danger"></span>
-                        </div>
-
-                        <div class="input-box">
-                            <label asp-for="Product.Details" class="details"></label>
-                            <input asp-for="Product.Details" type="text" placeholder="Wprowadz ..." required />
-                            <span asp-validation-for="Product.Details" class="text-danger"></span>
-                        </div>
+                <div class="input-box">
+                    <label asp-for="Product.Weight" class="details"></label>
+                    <input asp-for="Product.Weight"  placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Product.Weight" class="text-danger"></span>
                 </div>
-            @*@await Html.PartialAsync("View")*@
-            @*<div class="button">
-                <input type="button" onclick="myfunction()" value="Dodaj produkt">
-            </div>*@
+                <div class="input-box">
+                    <label asp-for="Product.Height" class="details"></label>
+                    <input asp-for="Product.Height"  placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Product.Height" class="text-danger"></span>
+                </div>
+
+                <div class="input-box">
+                    <label asp-for="Product.Length" class="details"></label>
+                    <input asp-for="Product.Length"  placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Product.Length" class="text-danger"></span>
+                </div>
+
+                <div class="input-box">
+                    <label asp-for="Product.Width" class="details"></label>
+                    <input asp-for="Product.Width"  placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Product.Width" class="text-danger"></span>
+                </div>
+
+                <div class="input-box">
+                    <label asp-for="Product.Count" class="details"></label>
+                    <input asp-for="Product.Count" type="number" placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Product.Count" class="text-danger"></span>
+                </div>
+
+                <div class="input-box">
+                    <label asp-for="Product.Details" class="details"></label>
+                    <input asp-for="Product.Details" type="text" placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Product.Details" class="text-danger"></span>
+                </div>
+            </div>
             <div class="title">Nadawca </div>
             <div class="user-details">
                 <div class="input-box">
@@ -130,28 +125,8 @@
             </div>
 
             <div class="button">
-                <input type="submit" value="Złóż zamówienie">
+                <input type="submit" value="Edytuj">
             </div>
         </form>
     </div>
 </div>
-
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-
-    @*<script>
-        function myfunction() {
-            var test = document.createElement('div');
-            test.className = "input-box";
-            test.innerHTML = '<label class="details" for="Product_Weight">Waga</label>' +
-                '<input type="number" placeholder="Wprowadz ..." required="" data-val="true" data-val-number="The field Waga must be a number." data-val-required="The Waga field is required." id="Product_Weight" name="Product.Weight" value="">' +
-                '<span class="text-danger field-validation-valid" data-valmsg-for="Product.Weight" data-valmsg-replace="true"></span>'
-            var product = document.getElementsByClassName('product-details')
-            product[0].appendChild(test);
-            console.log(product)
-
-        }
-    </script>*@
-
-}

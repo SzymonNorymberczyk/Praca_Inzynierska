@@ -12,9 +12,11 @@ namespace Praca_Inżynierska.ViewModels
     {
         [Key]
         public int Id { get; set; }
+        
         [Display(Name = "Waga")]
         [Column(TypeName = "decimal(18,2)")]
         public decimal Weight { get; set; }
+        
         [Display(Name = "Długość")]
         [Required(ErrorMessage = "To pole musi być wypełnione")]
         [Column(TypeName = "decimal(18,2)")]

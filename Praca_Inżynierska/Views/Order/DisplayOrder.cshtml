@@ -148,11 +148,19 @@
         </div>
     </div>
     <div>
-        <form asp-action="MyOrdersList" asp-controller="Order" style="width:200px;">
-            <div class="button">
-                <input type="submit" value="Wróć do listy">
-            </div>
-        </form>
-        <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+        <div class="row">
+            <form asp-action="MyOrdersList" asp-controller="Order" style="width:200px;">
+                <div class="button">
+                    <input type="submit" value="Wróć do listy">
+                </div>
+            </form>
+            &nbsp;
+            @*<form asp-action="EditOrder" asp-controller="Order" asp-route-id="@Model.Id" style="width:200px;">
+                <div class="button">
+                    <input type="submit" value="Edytuj">
+                </div>
+            </form>*@
+        </div>
         
+
     </div>
