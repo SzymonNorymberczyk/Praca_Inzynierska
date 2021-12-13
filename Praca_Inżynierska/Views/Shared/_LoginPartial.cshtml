@@ -2,25 +2,34 @@
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
-
+@if (SignInManager.IsSignedIn(User) && User.IsInRole("Administrator"))
+{
+    <li>
+        <a asp-controller="Admin" asp-action="OrdersList">
+            <i class='bx bx-grid-alt'></i>
+            <span class="links_name">Dashboard</span>
+        </a>
+        <span class="tooltip">Dashboard</span>
+    </li>
+}
 @if (SignInManager.IsSignedIn(User))
 {
 
     @*<li>
-        <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-            <i class='bx bx-log-out'></i>
-            <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <i class='bx bx-log-out'></i>
+                <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+            </form>
+        </li>*@
+    <li>
+        <form id="logout_form" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+            <a onclick="document.getElementById('logout_form').submit()">
+                <i class='bx bx-log-out'></i>
+                <span class="links_name">Logout</span>
+            </a>
+            <span class="tooltip">Logout</span>
         </form>
-    </li>*@
-<li>
-    <form id="logout_form" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
-    <a onclick="document.getElementById('logout_form').submit()">
-        <i class='bx bx-log-out'></i>
-        <span class="links_name">Logout</span>
-    </a>
-    <span class="tooltip">Logout</span>
-    </form>
-</li>
+    </li>
 }
 else
 {
