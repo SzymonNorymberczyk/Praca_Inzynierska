@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Praca_Inżynierska.Data;
@@ -15,19 +16,115 @@ namespace Praca_Inżynierska.Controllers
     public class AdminController : Controller
     {
         private readonly ApplicationDbContext _context;
-        public AdminController(ApplicationDbContext context)
+        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly UserManager<IdentityUser> _userManager;
+        public AdminController(ApplicationDbContext context, RoleManager<IdentityRole> roleManager, UserManager<IdentityUser> userManager)
         {
-
+            _roleManager = roleManager;
             _context = context;
+            _userManager = userManager;
         }
+
+        [HttpGet]
+        public IActionResult CreateRole()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> CreateRole(CreateRoleViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                IdentityRole identityRole = new IdentityRole
+                {
+                    Name = model.RoleName
+                };
+
+                IdentityResult result = await _roleManager.CreateAsync(identityRole);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("CreateRole", "Admin");
+                }
+
+                foreach (IdentityError item in result.Errors)
+                {
+                    ModelState.AddModelError("", item.Description);
+                }
+
+            }
+            return View(model);
+        }
+        [HttpGet]
+        public IActionResult ListRoles()
+        {
+            var roles = _roleManager.Roles;
+            return View(roles);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> EditRole(string id)
+        {
+            var role = await _roleManager.FindByIdAsync(id);
+
+            EditRoleViewModel model = new EditRoleViewModel
+            {
+                Id = role.Id,
+                RoleName = role.Name
+            };
+
+            foreach (var user in _userManager.Users)
+            {
+                if (await _userManager.IsInRoleAsync(user, role.Name))
+                {
+                    model.Users.Add(user.UserName);
+                }
+            }
+
+            return View(model);
+
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditRole(EditRoleViewModel model)
+        {
+            var role = await _roleManager.FindByIdAsync(model.Id);
+
+            if (role == null)
+            {
+                ViewBag.ErrorMessage = $"Role with Id = {model.Id} cannot be found";
+                return View("NotFound");
+            }
+            else
+            {
+                role.Name = model.RoleName;
+
+                // Update the Role using UpdateAsync
+                var result = await _roleManager.UpdateAsync(role);
+
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("ListRoles");
+                }
+
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+
+                return View(model);
+            }
+        }
+
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            var orders = _context.Orders.Include(x => x.OrderDetails).Include(x => x.OrderProducts).Include(x =>x.OrderStatus).FirstOrDefault(x => x.Id == id);
+            var orders = _context.Orders.Include(x => x.OrderDetails).Include(x => x.OrderProducts).Include(x => x.OrderStatus).FirstOrDefault(x => x.Id == id);
             var products = _context.OrderProducts.FirstOrDefault(x => x.OrderId == id);
             var sender = _context.OrderDetails.FirstOrDefault(x => x.OrderId == id && x.TypeAdress == "Nadawca");
             var receiver = _context.OrderDetails.FirstOrDefault(x => x.OrderId == id && x.TypeAdress == "Odbiorca");
-            
+
 
 
             OrderDetailViewModel orderDetailSender = new OrderDetailViewModel
@@ -77,7 +174,7 @@ namespace Praca_Inżynierska.Controllers
                     Text = x.Name,
                     Value = x.Id.ToString()
                 })
-                
+
 
             };
 
@@ -87,7 +184,7 @@ namespace Praca_Inżynierska.Controllers
         [HttpPost]
         public IActionResult Edit(OrderViewModel orders)
         {
-            
+
             var order = _context.Orders.FirstOrDefault(x => x.Id == orders.Id);
             var products = _context.OrderProducts.FirstOrDefault(x => x.OrderId == order.Id);
             var sender = _context.OrderDetails.FirstOrDefault(x => x.OrderId == order.Id && x.TypeAdress == "Nadawca");
@@ -132,7 +229,7 @@ namespace Praca_Inżynierska.Controllers
         }
         public IActionResult OrdersList()
         {
-            var orders = _context.Orders.Include(x => x.ApplicationUser).Include(x => x.OrderDetails).Include(x => x.OrderProducts).Include(x =>x.OrderStatus).OrderBy(x => x.Id).ToList();
+            var orders = _context.Orders.Include(x => x.ApplicationUser).Include(x => x.OrderDetails).Include(x => x.OrderProducts).Include(x => x.OrderStatus).OrderBy(x => x.Id).ToList();
 
 
             return View(orders);
@@ -148,7 +245,7 @@ namespace Praca_Inżynierska.Controllers
         [HttpGet]
         public IActionResult UsersEdit(string id)
         {
-            
+
             var user = _context.Users.FirstOrDefault(x => x.Id == id);
 
             RegisterViewModel applicationUser = new RegisterViewModel
