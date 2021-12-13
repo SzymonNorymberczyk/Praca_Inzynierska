@@ -14,31 +14,31 @@
             <div class="user-details">
                         <div class="input-box">
                             <label asp-for="Product.Weight" class="details"></label>
-                            <input asp-for="Product.Weight" type="number" placeholder="Wprowadz ..." required />
+                            <input asp-for="Product.Weight" type="number" placeholder="KG" required />
                             <span asp-validation-for="Product.Weight" class="text-danger"></span>
                         </div>
 
                         <div class="input-box">
                             <label asp-for="Product.Height" class="details"></label>
-                            <input asp-for="Product.Height" type="number" placeholder="Wprowadz ..." required />
+                            <input asp-for="Product.Height" type="number" placeholder="CM" required />
                             <span asp-validation-for="Product.Height" class="text-danger"></span>
                         </div>
 
                         <div class="input-box">
                             <label asp-for="Product.Length" class="details"></label>
-                            <input asp-for="Product.Length" type="number" placeholder="Wprowadz ..." required />
+                            <input asp-for="Product.Length" type="number" placeholder="CM" required />
                             <span asp-validation-for="Product.Length" class="text-danger"></span>
                         </div>
 
                         <div class="input-box">
                             <label asp-for="Product.Width" class="details"></label>
-                            <input asp-for="Product.Width" type="number" placeholder="Wprowadz ..." required />
+                            <input asp-for="Product.Width" type="number" placeholder="CM" required />
                             <span asp-validation-for="Product.Width" class="text-danger"></span>
                         </div>
 
                         <div class="input-box">
                             <label asp-for="Product.Count" class="details"></label>
-                            <input asp-for="Product.Count" type="number" placeholder="Wprowadz ..." required />
+                            <input asp-for="Product.Count" type="number" placeholder="Sztuki" required />
                             <span asp-validation-for="Product.Count" class="text-danger"></span>
                         </div>
 
@@ -68,6 +68,11 @@
                     <label asp-for="Sender.PhoneNumber" class="details"></label>
                     <input asp-for="Sender.PhoneNumber" type="text" placeholder="Wprowadz ..." required />
                     <span asp-validation-for="Sender.PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label asp-for="Sender.Email" class="details"></label>
+                    <input asp-for="Sender.Email" type="text" placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Sender.Email" class="text-danger"></span>
                 </div>
                 <div class="input-box">
                     <label asp-for="Sender.City" class="details"></label>
@@ -106,6 +111,11 @@
                     <label asp-for="Receiver.PhoneNumber" class="details"></label>
                     <input asp-for="Receiver.PhoneNumber" type="text" placeholder="Wprowadz ..." required />
                     <span asp-validation-for="Receiver.PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="input-box">
+                    <label asp-for="Receiver.Email" class="details"></label>
+                    <input asp-for="Receiver.Email" type="text" placeholder="Wprowadz ..." required />
+                    <span asp-validation-for="Receiver.Email" class="text-danger"></span>
                 </div>
                 <div class="input-box">
                     <label asp-for="Receiver.City" class="details"></label>

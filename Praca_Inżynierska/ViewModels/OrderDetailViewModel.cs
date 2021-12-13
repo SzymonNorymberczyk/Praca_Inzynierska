@@ -26,7 +26,9 @@ namespace Praca_Inżynierska.ViewModels
         public string Number { get; set; }
         [Display(Name = "Numer Domu")]
         public string HouseNumber { get; set; }
+
         [Display(Name = "Kod pocztowy")]
+        [RegularExpression("[0-9]{2}-[0-9]{3}", ErrorMessage = "Błedny Kod Pocztowy Wzór ##-###")]
         [Required(ErrorMessage = "To pole musi być wypełnione")]
         public string ZIPcode { get; set; }
         [Display(Name = "Miasto")]
@@ -35,7 +37,10 @@ namespace Praca_Inżynierska.ViewModels
         [Display(Name = "Numer Telefonu")]
         [Required(ErrorMessage = "To pole musi być wypełnione")]
         public string PhoneNumber { get; set; }
+
         [Display(Name = "E-mail")]
+        [RegularExpression("^[a-zA-Z0-9_\\.-]+@([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", ErrorMessage = "E-mail nie poprawny")]
+
         public string Email { get; set; }
         public string Nip { get; set; }
     }
