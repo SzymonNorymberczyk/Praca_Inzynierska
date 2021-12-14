@@ -2,7 +2,7 @@
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
-@if (SignInManager.IsSignedIn(User) && User.IsInRole("Administrator"))
+@if (SignInManager.IsSignedIn(User) && User.IsInRole("Administrator") || User.IsInRole("Pracownik"))
 {
     <li>
         <a asp-controller="Admin" asp-action="OrdersList">

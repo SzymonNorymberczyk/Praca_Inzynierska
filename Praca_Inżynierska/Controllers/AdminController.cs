@@ -14,7 +14,8 @@ using System.Threading.Tasks;
 
 namespace Praca_Inżynierska.Controllers
 {
-    [Authorize(Roles = "Administrator")]
+
+    [Authorize(Roles = "Administrator, Pracownik")]
     public class AdminController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -27,14 +28,46 @@ namespace Praca_Inżynierska.Controllers
             _userManager = userManager;
         }
 
+        [HttpPost]
+        [Authorize(Roles = "Administrator")]
+        public async Task<IActionResult> DeleteRole(string id)
+        {
+            var role = await _roleManager.FindByIdAsync(id);
+
+            if (role == null)
+            {
+                ViewBag.ErrorMessage = $"Role with Id = {id} cannot be found";
+                return View("NotFound");
+            }
+            else
+            {
+                var result = await _roleManager.DeleteAsync(role);
+
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("ListRoles");
+                }
+
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+
+                return View("ListRoles");
+            }
+        }
         [HttpGet]
+        [Authorize(Roles = "Administrator")]
         public IActionResult CreateRole()
         {
             return View();
         }
 
+        
+
 
         [HttpPost]
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> CreateRole(CreateRoleViewModel model)
         {
             if (ModelState.IsValid)
@@ -47,7 +80,7 @@ namespace Praca_Inżynierska.Controllers
                 IdentityResult result = await _roleManager.CreateAsync(identityRole);
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("CreateRole", "Admin");
+                    return RedirectToAction("ListRoles", "Admin");
                 }
 
                 foreach (IdentityError item in result.Errors)
@@ -59,6 +92,7 @@ namespace Praca_Inżynierska.Controllers
             return View(model);
         }
         [HttpGet]
+        [Authorize(Roles = "Administrator")]
         public IActionResult ListRoles()
         {
             var roles = _roleManager.Roles;
@@ -66,6 +100,7 @@ namespace Praca_Inżynierska.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> EditRole(string id)
         {
             var role = await _roleManager.FindByIdAsync(id);
@@ -89,6 +124,7 @@ namespace Praca_Inżynierska.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> EditRole(EditRoleViewModel model)
         {
             var role = await _roleManager.FindByIdAsync(model.Id);
@@ -120,6 +156,7 @@ namespace Praca_Inżynierska.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> UsersRoleList(string roleId)
         {
             ViewBag.roleId = roleId;
@@ -158,6 +195,7 @@ namespace Praca_Inżynierska.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> UsersRoleList(List<UserRoleViewModel> model, string roleId)
         {
             var role = await _roleManager.FindByIdAsync(roleId);
