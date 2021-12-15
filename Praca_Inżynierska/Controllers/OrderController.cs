@@ -237,6 +237,7 @@ namespace Praca_Inżynierska.Controllers
                 Name = orderModel.Sender.Name,
                 Surname = orderModel.Sender.Surname,
                 PhoneNumber = orderModel.Sender.PhoneNumber,
+                Email = orderModel.Sender.Email,
                 City = orderModel.Sender.City,
                 Street = orderModel.Sender.Street,
                 Number = orderModel.Sender.Number,
@@ -248,6 +249,7 @@ namespace Praca_Inżynierska.Controllers
                 Name = orderModel.Receiver.Name,
                 Surname = orderModel.Receiver.Surname,
                 PhoneNumber = orderModel.Receiver.PhoneNumber,
+                Email = orderModel.Receiver.Email,
                 City = orderModel.Receiver.City,
                 Street = orderModel.Receiver.Street,
                 Number = orderModel.Receiver.Number,
@@ -273,9 +275,22 @@ namespace Praca_Inżynierska.Controllers
             };
             _context.Orders.Add(order);
             _context.SaveChanges();
-            //int id = _context.Orders.OrderBy(x => x.Id).LastOrDefault().Id;
-            //return RedirectToAction(nameof(AdvertisementDisplay), new { id = id, adName = adModel.Title });
-            return View();
+            int id = _context.Orders.OrderBy(x => x.Id).LastOrDefault().Id;
+            return RedirectToAction(nameof(DisplayOrder), new { id = id});
+            //return View();
+        }
+
+        public IActionResult DeleteOrder(int id)
+        {
+            var order = _context.Orders.Where(x => x.Id == id).FirstOrDefault();
+            var orderProduct = _context.OrderProducts.Where(x => x.OrderId == id).FirstOrDefault();
+            var orderDetail = _context.OrderDetails.Where(x => x.OrderId == id).FirstOrDefault();
+           
+            _context.OrderDetails.Remove(orderDetail);
+            _context.OrderProducts.Remove(orderProduct);
+            _context.Orders.Remove(order);
+            _context.SaveChanges();
+            return RedirectToAction(nameof(MyOrdersList));
         }
     }
 }

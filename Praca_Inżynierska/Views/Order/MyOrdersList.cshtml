@@ -9,7 +9,7 @@
 <div class="container">
     <div class="content">
         <form action="AddOrder" style="width:200px;">
-            <div class="button" >
+            <div class="button">
                 <input type="submit" value="Złóż zamówienie">
             </div>
         </form>
@@ -44,9 +44,12 @@
                             @Html.DisplayFor(modelItem => item.OrderStatus.Name)
                         </td>
                         <td>
-                            <a asp-action="EditOrder" asp-route-id="@item.Id">Edit</a> |
-                            <a asp-action="DisplayOrder" asp-route-id="@item.Id">Details</a> |
-                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                            <a asp-action="EditOrder" asp-route-id="@item.Id">Edycja</a> |
+                            <a asp-action="DisplayOrder" asp-route-id="@item.Id">Podgląd</a> |
+                            @if (item.OrderStatusId == 1)
+                            {
+                            <a asp-action="DeleteOrder" asp-route-id="@item.Id">Usuń</a>
+                            }
                         </td>
                     </tr>
                 }
