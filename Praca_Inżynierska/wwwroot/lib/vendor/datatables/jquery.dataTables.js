@@ -11540,7 +11540,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfo": "Showing _START_ to _END_ of _TOTAL_ entries",
+			"sInfo": "Pokazuje od  _START_ do _END_ z _TOTAL_ rekordów",
 	
 	
 			/**
