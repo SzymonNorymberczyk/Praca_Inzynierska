@@ -24,17 +24,17 @@
                 </div>
                 <div class="card-footer">
                     <form method="post" asp-action="DeleteRole" asp-route-id="@item.Id">
-                        <a class="btn btn-primary" asp-controller="admin" asp-action="editrole" asp-route-id="@item.Id">Edit</a>
+                        <a class="btn btn-primary" asp-controller="admin" asp-action="editrole" asp-route-id="@item.Id">Edytuj</a>
                         <span id="confirmDeleteSpan_@item.Id" style="display:none">
-                            <span>Are you sure you want to delete?</span>
-                            <button type="submit" class="btn btn-danger">Yes</button>
+                            <span>Czy jesteś pewny że chcesz usunąć tą role?</span>
+                            <button type="submit" class="btn btn-danger">Tak</button>
                             <a href="#" class="btn btn-primary"
-                               onclick="confirmDelete('@item.Id', false)">No</a>
+                               onclick="confirmDelete('@item.Id', false)">Nie</a>
                         </span>
 
                         <span id="deleteSpan_@item.Id">
                             <a href="#" class="btn btn-danger"
-                               onclick="confirmDelete('@item.Id', true)">Delete</a>
+                               onclick="confirmDelete('@item.Id', true)">Usuń</a>
                         </span>
                     </form>
 

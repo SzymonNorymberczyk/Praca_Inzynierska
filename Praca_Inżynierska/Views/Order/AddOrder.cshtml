@@ -14,7 +14,7 @@
             <div class="user-details">
                         <div class="input-box">
                             <label asp-for="Product.Weight" class="details"></label>
-                            <input asp-for="Product.Weight" type="number" placeholder="KG"  />
+                            <input asp-for="Product.Weight" type="number" placeholder="KG" required />
                             <span asp-validation-for="Product.Weight" class="text-danger"></span>
                         </div>
 
@@ -44,7 +44,7 @@
 
                         <div class="input-box">
                             <label asp-for="Product.Details" class="details"></label>
-                            <input asp-for="Product.Details" type="text" placeholder="Wprowadz ..." />
+                            <input asp-for="Product.Details" type="text" placeholder="Wprowadz ..." required/>
                             <span asp-validation-for="Product.Details" class="text-danger"></span>
                         </div>
                 </div>

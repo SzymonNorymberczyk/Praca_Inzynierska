@@ -3,27 +3,28 @@
 @{
     ViewData["Title"] = "Register";
 }
-<link href="~/css/LogReg.css" rel="stylesheet" />
-<div class="container">
-    <div class="title">Rejestracja</div>
 
+<div class="container">
     <div class="content">
-            <form asp-action="Register">
-        <div class="user-details">
+        <div class="title">Rejestracja</div>
+
+
+        <form asp-action="Register">
+            <div class="user-details">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="input-box">
                     <label asp-for="FirstName" class="details"></label>
-                    <input asp-for="FirstName" placeholder="Name"  required/>
+                    <input asp-for="FirstName" placeholder="Imie" required />
                     <span asp-validation-for="FirstName" class="text-danger"></span>
                 </div>
                 <div class="input-box">
                     <label asp-for="LastName" class="details"></label>
-                    <input asp-for="LastName" placeholder="Nazwisko"  required/>
+                    <input asp-for="LastName" placeholder="Nazwisko" required />
                     <span asp-validation-for="LastName" class="text-danger"></span>
                 </div>
                 <div class="input-box">
                     <label asp-for="Login" class="details"></label>
-                    <input asp-for="Login" placeholder="Login"  required/>
+                    <input asp-for="Login" placeholder="Login" required />
                     <span asp-validation-for="Login" class="text-danger"></span>
                 </div>
                 <div class="input-box">
@@ -33,25 +34,22 @@
                 </div>
                 <div class="input-box">
                     <label asp-for="Password" class="details"></label>
-                    <input asp-for="Password" placeholder="Hasło"  required/>
+                    <input asp-for="Password" placeholder="Hasło" required />
                     <span asp-validation-for="Password" class="text-danger"></span>
                 </div>
                 <div class="input-box">
                     <label asp-for="ConfrirmPassword" class="details"></label>
-                    <input asp-for="ConfrirmPassword" placeholder="Powtórz hasło"  required/>
+                    <input asp-for="ConfrirmPassword" placeholder="Powtórz hasło" required />
                     <span asp-validation-for="ConfrirmPassword" class="text-danger"></span>
                 </div>
 
-                @*<div class="g-recaptcha" data-sitekey="6LfSsKUaAAAAABbqZtFyCWUARsmM4-HGFZuhi0U0"></div>
-                <span style="display:inline-block ; font-size:15px; color:red">
-                    @ViewBag.Message
-                </span>*@
+
 
                 <div class="button">
                     <input type="submit" value="Zarejestruj" class="btn btn-primary" id="myButton" />
                 </div>
             </div>
-         </form>
+        </form>
     </div>
 </div>
 

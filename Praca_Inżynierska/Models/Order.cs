@@ -19,6 +19,7 @@ namespace Praca_Inżynierska.Models
 
         public int OrderStatusId { get; set; }
 
+        [Display(Name = "Data utworzenia")]
         public DateTime DateCreate { get; set; }
         
         public virtual ICollection<OrderProduct> OrderProducts { get; set; }

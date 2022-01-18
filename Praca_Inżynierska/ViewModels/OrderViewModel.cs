@@ -12,6 +12,7 @@ namespace Praca_Inżynierska.ViewModels
     {
         [Key]
         public int Id { get; set; }
+        [Display(Name = "Data utworzenia")]
         public DateTime DateCreate { get; set; }
        
         public virtual OrderStatusViewModel OrderStatus { get; set; }
